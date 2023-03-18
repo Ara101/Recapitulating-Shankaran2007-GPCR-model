@@ -128,7 +128,7 @@ from scipy.integrate import odeint
 # seperate ligand and receptor GPCR
 
 # funtction that returns dX/dt
-def model(X, t):
+def model(X, t, kds = 0.065):
     
     # parameters
     kon = 8.4e7
@@ -136,7 +136,6 @@ def model(X, t):
     Kd = koff/kon
     kfr = 10
     krr = 10
-    kds = 0.065
     ka = 1e-7
     ki = 2e-1
     Nav = 6.022e23
@@ -184,18 +183,20 @@ t = np.linspace(0,250,100)
 # solve ODE
 results = odeint(model, IC, t)
 
-plt.figure(5)
 plt.plot(t,results)
 plt.xlabel('time')
 plt.ylabel('Concentation')
 plt.legend(['R', 'L', 'C', 'Ca', 'Cd', 'G', 'Ga'])
-plt.title('GPCR with ODE solver')
+plt.title('Entire Model')
 plt.show()
 
-plt.figure(6)
-species = IC.index(Ga)
-plt.plot(t,results[:,species])
+kds =0.065
+for mag in [10**-2, 10**-1, 10**0, 10**1, 10**2]:
+    results0 = odeint(model, IC, t, args = (kds*mag,))
+    plt.plot(t,results0[:,IC.index(Ga)]/1000,label = 'kds * %s ' % mag)
+
+plt.legend()    
 plt.xlabel('time')
 plt.ylabel('Concentation')
-plt.title('GPCR w ODE solver and Ga focus')
+plt.title('Ga focused Model')
 plt.show()
