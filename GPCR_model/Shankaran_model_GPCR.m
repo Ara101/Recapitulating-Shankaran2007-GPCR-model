@@ -83,7 +83,7 @@ ylim([0 inf])
 legend( 'R','L','C','Ca','Cd','G','Ga')
 title('Complete GPCR Model')
 xlabel('time(s)')
-ylabel('Concentations')
+ylabel('Concentation of species')
 
 % Reproducing the graph Using the ODE stiff solver
 
@@ -97,14 +97,14 @@ for multiple = [1e-2 1e-1 1e-0 1e1 1e2]
     
 end
 hold off
-ylim([0 inf])
+ylim([0 0.025])
 legend show
 title('Ga species with change in desensitization')
 xlabel('time(s)')
 ylabel('Activate G-protein Concentation')
 
 
-%% ODE user defined funtion
+%% ODE user defined function
 function xdot = dXdt(t,X,kds)
 
 % parameters
