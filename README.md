@@ -13,16 +13,16 @@ The main aspects of the model are the system of ODEs:
 
 The parameters and inital conditions:
 
-    kon = 8.4×107 /M/s
+    kon = 8.4e7 /M/s
     koff = 0.37 /s
     kfr = 10 /s
     krr = 10 /s
     kds = 0.065 /s
-    ka = 10−7 /s
-    ki = 2×10−1 /s
-    RT = 5.5×104
-    GT = 1×105
-    V = 4×10−10 liters/cell
+    ka = 10e−7 /s
+    ki = 2e−1 /s
+    RT = 5.5e4
+    GT = 1e5
+    V = 4e−10 liters/cell
 
 
 I attempted recreate this model with ODE solvers and multiple modeling software the result was a partial recreation with most methods
