@@ -1,5 +1,6 @@
 
-Here I Recapitulate the mechanistic GPCR model in the paper “Receptor downregulation and desensitization enhance the information processing ability of signalling receptors,” .
+Here I Recapitulate the mechanistic GPCR model in the paper “Receptor downregulation and desensitization enhance the information processing ability of signalling receptors,”. doi: 10.1186/1752-0509-1-48.
+
 
 The main aspects of the model are the system of ODEs:
 
